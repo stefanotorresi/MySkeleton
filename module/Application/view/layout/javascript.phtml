@@ -1,0 +1,36 @@
+<?php /* @var $this Zend\View\Renderer\PhpRenderer */
+
+use Zend\Json\Json;
+
+?>
+<!-- javascript -->
+
+    <?php
+
+    // common javascript to be loaded at the bottom of the DOM
+    echo $this->inlineScript()
+            ->appendFile($this->basePath('js/application.js?' . $this->layout()->cache_bust_index)).PHP_EOL;
+
+    $applicationConfig = array(
+        'homeUrl' => $this->url('home', array(), array('force_canonical' => true)),
+    );
+
+    ?>
+    <!-- Main application-->
+    <script>
+        application = new Application(<?= Json::encode($applicationConfig); ?>);
+    </script>
+
+    <?php if (!empty($this->layout()->api_keys['google_analytics'])) : ?>
+    <!-- Google analytics -->
+    <script>
+        var _gaq = [['_setAccount', '<?= $this->layout()->api_keys['google_analytics'] ?>'], ['_trackPageview']];
+        (function(d, t) {
+            var g = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            g.src = ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js';
+            s.parentNode.insertBefore(g, s)
+        }(document, 'script'));
+    </script>
+    <?php endif; ?>
+
+<!-- end javascript -->

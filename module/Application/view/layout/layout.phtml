@@ -18,14 +18,13 @@ foreach ($this->layout()->open_graph as $key => $value) {
 }
 
 // common css
-$this->headLink()
-    ->prependStylesheet($this->basePath('/css/main.css?'.$this->layout()->cache_bust_index), 'all');
+$this->headLink()->prependStylesheet($this->basePath('/css/main.css?'.$this->layout()->cache_bust_index), 'all');
 
 // these is the only scripts needed in the head
-// any other script is included in at the bottom of the DOM, inside 'javascript.phtml' template
+// any other script is included in at the bottom of the DOM, inside 'javascript.phtml'
 $this->headScript()
-    ->prependFile('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js')
-    ->appendScript("Modernizr.load('//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js');");
+    ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
+    ->prependFile('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js');
 
 
 $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
@@ -44,15 +43,14 @@ $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
     <?= $this->headScript().PHP_EOL ?>
 </head>
 
-<body class="<?= $this->escapeHtmlAttr($bodyClass) ?>" id="wrapper">
+<body class="<?= $this->escapeHtmlAttr($bodyClass) ?>">
 
     <a id="top"></a>
 
     <!--[if lt IE 9]>
-    <div class="chromeframe text-center">
-        <?php
-        echo $this->translate('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.');
-        ?>
+    <div class="browsehappy">
+        <p class="warning"><?= $this->translate('You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.'); ?></p>
+        <div class="spacer"></div>
     </div>
     <![endif]-->
 
@@ -64,7 +62,7 @@ $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
         </div>
     <?php endif; ?>
 
-    <?= $this->javascript ?>
+    <?= $this->render("layout/javascript") ?>
 
 </body>
 </html>

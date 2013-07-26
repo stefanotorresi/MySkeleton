@@ -41,6 +41,7 @@ class RenderListener extends AbstractListenerAggregate
 
         $layoutModel->setVariables($module->getOptions('layout'));
         $layoutModel->setVariable('api_keys', $module->getOptions('api_keys'));
+        $layoutModel->setVariable('google_analytics', $module->getOptions('google_analytics'));
 
         $layoutModel->lang = $serviceManager->has('translator') ?
             $serviceManager->get('translator')->getLocale() :

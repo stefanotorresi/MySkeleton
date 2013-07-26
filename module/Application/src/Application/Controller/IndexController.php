@@ -14,7 +14,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        echo 'it works!';
+        $this->layout()->content = '<h1>it works!</h1>';
         return false;
     }
 }

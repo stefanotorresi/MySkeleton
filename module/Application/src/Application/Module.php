@@ -9,6 +9,7 @@ namespace Application;
 
 use Application\View\RenderListener;
 use Zend\ModuleManager\Feature;
+use Zend\Mvc\ModuleRouteListener;
 use ZfcBase\Module\AbstractModule;
 use Zend\ModuleManager\ModuleManager;
 use Zend\Mvc\ApplicationInterface;
@@ -18,9 +19,13 @@ class Module extends AbstractModule implements
 {
     public function bootstrap(ModuleManager $moduleManager, ApplicationInterface $app)
     {
-        $events = $app->getEventManager();
+        $eventManager = $app->getEventManager();
+
         $renderListener = new View\RenderListener();
-        $renderListener->attach($events);
+        $renderListener->attach($eventManager);
+
+        $moduleRouteListener = new ModuleRouteListener();
+        $moduleRouteListener->attach($eventManager);
     }
 
     public function getDir()

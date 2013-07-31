@@ -45,8 +45,7 @@ class RenderListener extends AbstractListenerAggregate
 
         $layoutModel->lang = $serviceManager->has('translator') ?
             $serviceManager->get('translator')->getLocale() :
-            $module->getOption('lang', 'en');
-
+            $module->getOption('lang', 'en_US');
     }
 
 }

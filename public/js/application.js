@@ -43,7 +43,7 @@ Application.prototype = {
     initCanvasLoader : function()
     {
         Modernizr.load([{
-            load: '//heartcode-canvasloader.googlecode.com/files/heartcode-canvasloader-min-0.9.1.js',
+            load: 'http://cdn.add-design.it/js/canvasloader/0.9.1/js/heartcode-canvasloader-min.js',
             complete: function() {
                 $body = $('body');
 

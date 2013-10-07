@@ -1,6 +1,6 @@
 function Application(config)
 {
-    $.extend(this.config, config);
+    $.extend(true, this.config, config);
 
     this.initConsole()
         .initCanvasLoader()
@@ -11,6 +11,15 @@ Application.prototype = {
 
     config : {
         homeUrl: '',
+        canvasLoader: {
+            color: '#000000',
+            shape: 'spiral',
+            diameter: 100,
+            density: 80,
+            range: 0.8,
+            speed: 3,
+            fps: 30
+        },
         googleAnalytics: []
     },
 
@@ -42,25 +51,28 @@ Application.prototype = {
 
     initCanvasLoader : function()
     {
-        Modernizr.load([{
+        var app = this;
+        yepnope([{
             load: 'http://cdn.add-design.it/js/canvasloader/0.9.1/js/heartcode-canvasloader-min.js',
             complete: function() {
-                $body = $('body');
+                var $body = $('body');
 
                 if (!$body.attr('id')) {
                     $body.attr('id', 'body');
                 }
 
                 var cl = new CanvasLoader($body.attr('id'));
-                cl.setShape('spiral'); // default is 'oval'
-                cl.setColor('#000000'); // default is '#000000'
-                cl.setDiameter(100); // default is 40
-                cl.setDensity(80); // default is 40
-                cl.setRange(0.8); // default is 1.3
-                cl.setSpeed(3); // default is 2
-                cl.setFPS(30); // default is 24
+                cl.setShape(app.config.canvasLoader.shape);
+                cl.setColor(app.config.canvasLoader.color);
+                cl.setDiameter(app.config.canvasLoader.diameter);
+                cl.setDensity(app.config.canvasLoader.density);
+                cl.setRange(app.config.canvasLoader.range);
+                cl.setSpeed(app.config.canvasLoader.speed);
+                cl.setFPS(app.config.canvasLoader.fps);
 
-                $cl = $("#canvasLoader");
+                app.cl = cl;
+
+                var $cl = $("#canvasLoader");
 
                 $cl.css({
                     'position': 'fixed',
@@ -69,12 +81,9 @@ Application.prototype = {
                     'margin-top': cl.getDiameter() * -0.5 + "px",
                     'margin-left': cl.getDiameter() * -0.5 + "px",
                     'opacity': 0,
-                    'z-index': 999999
+                    'z-index': 999999,
+                    'display': 'none'
                 });
-
-                cl.show();
-
-                $cl.hide().css('opacity', 1);
             }
         }]);
 
@@ -83,9 +92,9 @@ Application.prototype = {
 
     initGoogleAnalytics: function()
     {
-        app = this;
+        var app = this;
 
-        Modernizr.load([{
+        yepnope([{
             test: app.config.googleAnalytics,
             yep: (document.location.protocol === 'https:' ? '//ssl' : 'http://www') + '.google-analytics.com/ga.js',
             complete: function() {
@@ -96,6 +105,27 @@ Application.prototype = {
         }]);
 
         return this;
+    },
+
+    initFacebook: function()
+    {
+        var app = this;
+        $("body").prepend($('<div/>', {id: 'fb-root'}));
+
+        yepnope({
+            test: app.config.facebook.appId && app.config.facebook.channelUrl,
+            yep: '//connect.facebook.net/' + $("html").attr('lang') + '/all.js',
+            callback: function() {
+                FB.init({
+                    appId      : app.config.facebook.appId,
+                    channelUrl : app.config.facebook.channelUrl,
+                    status     : true,
+                    xfbml      : true
+                });
+            }
+        });
+
+        return app;
     },
 
     showLoader : function(callback)
@@ -110,7 +140,10 @@ Application.prototype = {
             return this;
         }
 
+        this.cl.show();
+        $("#canvasLoader").hide().css({'opacity': 1});
         $("#canvasLoader").stop(true).fadeIn('fast');
+
         $overlay.stop(true).fadeIn('fast',callback);
 
         return this;
@@ -124,7 +157,11 @@ Application.prototype = {
             return this;
         }
 
-        $("#canvasLoader").stop(true).fadeOut('fast');
+        $("#canvasLoader").stop(true).fadeOut('fast', $.proxy(function() {
+            this.cl.hide();
+            $("#canvasLoader").css({'opacity': 0});
+        }, this));
+
         $overlay.stop(true).fadeOut('fast',callback);
 
         return this;
@@ -140,4 +177,3 @@ Application.prototype = {
     }
 
 };
-

@@ -23,8 +23,9 @@ $this->headLink()->prependStylesheet($this->basePath('/css/main.css?'.$this->lay
 // these is the only scripts needed in the head
 // any other script is included in at the bottom of the DOM, inside 'javascript.phtml'
 $this->headScript()
-    ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js')
-    ->prependFile('//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js');
+    ->prependFile('//ajax.googleapis.com/ajax/libs/jquery/1.10.3/jquery.min.js')
+    ->prependFile('http://cdn.add-design.it/js/yepnope.js/1.5.4/yepnope-full.min.js')
+    ->prependFile('http://cdn.add-design.it/js/modernizr/modernizr-2.6.2-alltests.min.js');
 
 
 $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);

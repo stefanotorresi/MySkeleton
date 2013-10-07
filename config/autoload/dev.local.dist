@@ -12,9 +12,8 @@
  */
 
 return [
-    'Application' => [
-        'layout' => [
-            'cache_bust_index' => uniqid(),
-        ],
+    'view_manager' => [
+        'display_not_found_reason' => true,
+        'display_exceptions' => true,
     ],
 ];

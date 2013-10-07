@@ -12,6 +12,7 @@ namespace Application;
 return array(
     __NAMESPACE__ => [
         'layout' => [
+            'cache_bust_index' => uniqid(),
             'metas' => [],
             'open_graph' => [],
         ],

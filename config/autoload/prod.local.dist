@@ -13,9 +13,6 @@
 
 return [
     'Application' => [
-        'layout' => [
-            'cache_bust_index' => 1,
-        ],
         'google_analytics' => [
             // GA Asynchronous Syntax command array
 //            ['_setAccount', 'UA-XXXXX-X'],

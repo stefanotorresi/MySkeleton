@@ -10,7 +10,12 @@
     "require": {
         "php": ">5.4.1",
         "zf-commons/zfc-base": "*",
-        "stefanotorresi/my-base": "dev-master",
+        "stefanotorresi/my-base": "1.*@dev",
         "stefanotorresi/my-error-handler": "dev-master"
-    }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "0.x-dev"
+        }
+    },
 }

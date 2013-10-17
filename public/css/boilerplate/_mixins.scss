@@ -56,8 +56,7 @@
   transition: $prop;
   -moz-transition: $prop; /* Firefox 4 */
   -webkit-transition: $prop; /* Safari and Chrome */
-  -o-transition: $prop; /* Opera */
-  -ms-transition: $prop; /* IE10 */
+  -o-transition: $prop;
 }
 
 @mixin transition-prop($prop-name, $value) {

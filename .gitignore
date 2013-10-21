@@ -8,10 +8,12 @@
 .sass-cache
 *.swp
 composer.lock
-nbproject
-vendor
 config/development.config.php
 config/autoload/local.php
 config/autoload/*.local.php
 config/autoload/*.local.dist.php
+data/cache/*
+nbproject
+vendor
 !assets/vendor/README.md
+!data/cache/.gitkeep

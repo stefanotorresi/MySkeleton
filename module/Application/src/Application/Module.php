@@ -8,48 +8,49 @@
 namespace Application;
 
 use Application\View\RenderListener;
+use MyBase\BaseModule;
+use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\ModuleRouteListener;
-use Zend\Stdlib\ArrayUtils;
-use Zend\Stdlib\Glob;
-use ZfcBase\Module\AbstractModule;
-use Zend\ModuleManager\ModuleManager;
-use Zend\Mvc\ApplicationInterface;
+use Zend\Mvc\MvcEvent;
 
-class Module extends AbstractModule implements
-    Feature\ConfigProviderInterface
+class Module extends BaseModule
+    implements Feature\ConsoleUsageProviderInterface
 {
-    public function bootstrap(ModuleManager $moduleManager, ApplicationInterface $app)
-    {
-        $eventManager = $app->getEventManager();
-
-        $renderListener = new View\RenderListener();
-        $renderListener->attach($eventManager);
-
-        $moduleRouteListener = new ModuleRouteListener();
-        $moduleRouteListener->attach($eventManager);
-    }
-
-    public function getConfig()
-    {
-        $config = parent::getConfig();
-
-        $configFiles = Glob::glob($this->getDir().'/config/*.config.php');
-
-        foreach ($configFiles as $configFile) {
-            $config = ArrayUtils::merge($config, include $configFile);
-        }
-
-        return $config;
-    }
-
+    /**
+     * {@inheritdoc}
+     */
     public function getDir()
     {
         return __DIR__ . '/../..';
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getNamespace()
     {
         return __NAMESPACE__;
+    }
+
+    public function onBootstrap(MvcEvent $event)
+    {
+        $eventManager = $event->getApplication()->getEventManager();
+
+        $renderListener = new View\RenderListener();
+        $moduleRouteListener = new ModuleRouteListener();
+
+        $eventManager->attach($renderListener);
+        $eventManager->attach($moduleRouteListener);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function getConsoleUsage(ConsoleAdapterInterface $console)
+    {
+        return [
+            'development (disable|enable)' => 'Disable or enable development mode',
+        ];
     }
 }

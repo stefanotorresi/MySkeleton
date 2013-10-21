@@ -3,7 +3,7 @@
         "This file locks the dependencies of your project to a known state",
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file"
     ],
-    "hash": "79f630fd8f1c4fd3a6cd1478c01885a4",
+    "hash": "23c626e4bbcdf9c7f88f9e8a42118020",
     "packages": [
         {
             "name": "stefanotorresi/my-base",
@@ -11,26 +11,41 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanotorresi/MyBase.git",
-                "reference": "efdcb2a9a8eb7eea945f78ebd9f33f14f9b02fa3"
+                "reference": "4138a19bc2f61ac3b9d1d0a5bf7f9c86cf6a67a2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanotorresi/MyBase/zipball/efdcb2a9a8eb7eea945f78ebd9f33f14f9b02fa3",
-                "reference": "efdcb2a9a8eb7eea945f78ebd9f33f14f9b02fa3",
+                "url": "https://api.github.com/repos/stefanotorresi/MyBase/zipball/4138a19bc2f61ac3b9d1d0a5bf7f9c86cf6a67a2",
+                "reference": "4138a19bc2f61ac3b9d1d0a5bf7f9c86cf6a67a2",
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.3.3",
+                "php": ">=5.4.1",
                 "zendframework/zendframework": "2.*"
             },
+            "require-dev": {
+                "kriswallsmith/assetic": "*"
+            },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.x-dev",
+                    "dev-0.x": "0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "MyBase": "src"
-                }
+                },
+                "classmap": [
+                    "./"
+                ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "time": "2013-07-24 17:05:19"
+            "license": [
+                "MIT"
+            ],
+            "time": "2013-10-21 09:51:22"
         },
         {
             "name": "stefanotorresi/my-error-handler",
@@ -38,12 +53,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stefanotorresi/MyErrorHandler.git",
-                "reference": "dc288c998c0c70179febe237d0c17ec2e4bcad47"
+                "reference": "d06e517ed16f7876715a0b5844723542df0fbddc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stefanotorresi/MyErrorHandler/zipball/dc288c998c0c70179febe237d0c17ec2e4bcad47",
-                "reference": "dc288c998c0c70179febe237d0c17ec2e4bcad47",
+                "url": "https://api.github.com/repos/stefanotorresi/MyErrorHandler/zipball/d06e517ed16f7876715a0b5844723542df0fbddc",
+                "reference": "d06e517ed16f7876715a0b5844723542df0fbddc",
                 "shasum": ""
             },
             "require": {
@@ -74,20 +89,20 @@
                 "zend",
                 "zf2"
             ],
-            "time": "2013-06-04 11:52:59"
+            "time": "2013-10-11 10:22:51"
         },
         {
             "name": "zendframework/zendframework",
-            "version": "2.2.2",
+            "version": "2.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/zendframework/zf2.git",
-                "reference": "release-2.2.2"
+                "reference": "5b03d868755c181fc9b5dc56c1f8c26e73ca0bed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/zendframework/zf2/zipball/release-2.2.2",
-                "reference": "release-2.2.2",
+                "url": "https://api.github.com/repos/zendframework/zf2/zipball/5b03d868755c181fc9b5dc56c1f8c26e73ca0bed",
+                "reference": "5b03d868755c181fc9b5dc56c1f8c26e73ca0bed",
                 "shasum": ""
             },
             "require": {
@@ -188,64 +203,123 @@
                 "framework",
                 "zf2"
             ],
-            "time": "2013-07-24 14:02:19"
-        },
+            "time": "2013-08-26 15:09:04"
+        }
+    ],
+    "packages-dev": [
         {
-            "name": "zf-commons/zfc-base",
-            "version": "v0.1.2",
+            "name": "zendframework/zend-developer-tools",
+            "version": "dev-master",
             "source": {
                 "type": "git",
-                "url": "https://github.com/ZF-Commons/ZfcBase.git",
-                "reference": "v0.1.2"
+                "url": "https://github.com/zendframework/ZendDeveloperTools.git",
+                "reference": "081ea12e59e8a0ffe84b032e8e804d26d3b1d404"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/ZF-Commons/ZfcBase/zipball/v0.1.2",
-                "reference": "v0.1.2",
+                "url": "https://api.github.com/repos/zendframework/ZendDeveloperTools/zipball/081ea12e59e8a0ffe84b032e8e804d26d3b1d404",
+                "reference": "081ea12e59e8a0ffe84b032e8e804d26d3b1d404",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
-                "zendframework/zend-db": ">=2.1,<3.0",
-                "zendframework/zend-eventmanager": ">=2.1,<3.0",
-                "zendframework/zend-loader": ">=2.1,<3.0",
-                "zendframework/zend-modulemanager": ">=2.1,<3.0",
-                "zendframework/zend-mvc": ">=2.1,<3.0",
-                "zendframework/zend-servicemanager": ">=2.1,<3.0",
-                "zendframework/zend-stdlib": ">=2.1,<3.0"
+                "zendframework/zend-debug": "2.*",
+                "zendframework/zend-eventmanager": "2.*",
+                "zendframework/zend-mvc": "2.*",
+                "zendframework/zend-servicemanager": "2.*",
+                "zendframework/zend-stdlib": "2.*",
+                "zendframework/zend-version": "2.*"
             },
-            "type": "library",
+            "suggest": {
+                "bjyoungblood/bjy-profiler": "Version: dev-master, allows the usage of the (Zend) Db collector.",
+                "ocramius/ocra-service-manager": "OcraServiceManager can help you track dependencies within your application."
+            },
+            "type": "zf-module",
             "autoload": {
                 "psr-0": {
-                    "ZfcBase": "src/"
+                    "ZendDeveloperTools": "src/"
                 },
                 "classmap": [
                     "./Module.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
             "authors": [
-                {
-                    "name": "Kyle Spraggs",
-                    "email": "theman@spiffyjr.me",
-                    "homepage": "http://www.spiffyjr.me/"
-                },
                 {
                     "name": "Evan Coury",
                     "email": "me@evancoury.com",
                     "homepage": "http://blog.evan.pro/"
+                },
+                {
+                    "name": "Eric Boh",
+                    "email": "cossish@gmail.com"
                 }
             ],
-            "description": "A set of genetic (abstract) classes which are commonly used across multiple modules.",
-            "homepage": "https://github.com/ZF-Commons/ZfcBase",
+            "description": "Module for developer and debug tools for working with the ZF2 MVC layer.",
+            "homepage": "https://github.com/zendframework/ZendDeveloperTools",
             "keywords": [
+                "debug",
+                "developer",
+                "module",
                 "zf2"
             ],
-            "time": "2013-05-02 12:33:49"
+            "time": "2013-10-17 08:56:09"
+        },
+        {
+            "name": "zendframework/zftool",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/zendframework/ZFTool.git",
+                "reference": "a7ab10919b5ebb1bff82b63042bee359b327e53a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/zendframework/ZFTool/zipball/a7ab10919b5ebb1bff82b63042bee359b327e53a",
+                "reference": "a7ab10919b5ebb1bff82b63042bee359b327e53a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "zendframework/zend-code": ">=2.2.2",
+                "zendframework/zend-config": ">=2.2.2",
+                "zendframework/zend-console": ">=2.2.2",
+                "zendframework/zend-file": ">=2.2.2",
+                "zendframework/zend-form": ">=2.2.2",
+                "zendframework/zend-loader": ">=2.2.2",
+                "zendframework/zend-modulemanager": ">=2.2.2",
+                "zendframework/zend-mvc": ">=2.2.2",
+                "zendframework/zend-serializer": ">=2.2.2",
+                "zendframework/zend-servicemanager": ">=2.2.2",
+                "zendframework/zend-stdlib": ">=2.2.2",
+                "zendframework/zend-text": ">=2.2.2",
+                "zendframework/zend-version": ">=2.2.2",
+                "zendframework/zend-view": ">=2.2.2"
+            },
+            "bin": [
+                "zf.php"
+            ],
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "ZFTool\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "description": "Utility module for Zend Framework 2 applications.",
+            "homepage": "http://framework.zend.com/",
+            "keywords": [
+                "tool",
+                "zf2"
+            ],
+            "time": "2013-09-06 17:30:16"
         }
-    ],
-    "packages-dev": [
-
     ],
     "aliases": [
 
@@ -253,7 +327,9 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "stefanotorresi/my-base": 20,
-        "stefanotorresi/my-error-handler": 20
+        "stefanotorresi/my-error-handler": 20,
+        "zendframework/zftool": 20,
+        "zendframework/zend-developer-tools": 20
     },
     "platform": {
         "php": ">5.4.1"

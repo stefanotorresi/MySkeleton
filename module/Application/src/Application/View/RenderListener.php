@@ -7,7 +7,6 @@
 
 namespace Application\View;
 
-use Application\Module;
 use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Mvc\MvcEvent;
@@ -36,16 +35,14 @@ class RenderListener extends AbstractListenerAggregate
         /** @var ServiceManager $serviceManager */
         $serviceManager = $e->getApplication()->getServiceManager();
 
-        /** @var Module $module  */
-        $module = $serviceManager->get('ModuleManager')->getModule('Application');
+        $config = $serviceManager->get('config')['Application'];
 
-        $layoutModel->setVariables($module->getOptions('layout'));
-        $layoutModel->setVariable('api_keys', $module->getOptions('api_keys'));
-        $layoutModel->setVariable('google_analytics', $module->getOptions('google_analytics'));
+        $layoutModel->setVariables($config['layout']);
+        $layoutModel->setVariable('api_keys', $config['api_keys']);
+        $layoutModel->setVariable('google_analytics', $config['google_analytics']);
 
         $layoutModel->lang = $serviceManager->has('translator') ?
-            $serviceManager->get('translator')->getLocale() :
-            $module->getOption('lang', 'en_US');
+            $serviceManager->get('translator')->getLocale() : $config['lang'];
     }
 
 }

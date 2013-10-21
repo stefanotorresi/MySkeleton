@@ -64,6 +64,7 @@ return array(
             ),
         ),
     ),
+
     'service_manager' => array(
         'abstract_factories' => array(
             'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
@@ -73,6 +74,7 @@ return array(
             'translator' => 'MvcTranslator',
         ),
     ),
+
     'translator' => array(
         'locale' => 'en_US',
         'translation_file_patterns' => array(
@@ -83,24 +85,20 @@ return array(
             ),
         ),
     ),
+
     'controllers' => array(
         'invokables' => array(
-            'Application\Controller\Index' => 'Application\Controller\IndexController'
+            __NAMESPACE__ . '\Controller\Index'             => __NAMESPACE__ . '\Controller\IndexController',
+            __NAMESPACE__ . '\Controller\DevelopmentMode'   => __NAMESPACE__ . '\Controller\DevelopmentModeController',
         ),
     ),
+
     'view_manager' => array(
         'display_not_found_reason' => true,
         'display_exceptions'       => true,
         'doctype'                  => 'HTML5',
         'template_path_stack' => array(
             __DIR__ . '/../view',
-        ),
-    ),
-    // Placeholder for console routes
-    'console' => array(
-        'router' => array(
-            'routes' => array(
-            ),
         ),
     ),
 );

@@ -13,7 +13,7 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $this->layout()->content = '<h1>it works!</h1>';
+        $this->layout()->content = '<h1 class="container text-center">It works!</h1>';
 
         return false;
     }

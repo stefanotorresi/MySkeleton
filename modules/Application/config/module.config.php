@@ -18,6 +18,7 @@ return array(
         ],
         'api_keys' => [],
         'google_analytics' => [],
+        'lang' => 'en', // this key is used as fallback when a translator is not available
     ],
 
     'router' => array(
@@ -76,7 +77,7 @@ return array(
     ),
 
     'translator' => array(
-        'locale' => 'en_US',
+        'locale' => 'en',
         'translation_file_patterns' => array(
             array(
                 'type'     => 'phpArray',

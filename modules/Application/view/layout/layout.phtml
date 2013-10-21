@@ -52,11 +52,15 @@ $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
     <![endif]-->
 
     <?php if (!isset($this->error)) : ?>
+
         <?= $this->content ?>
-    <?php else: ?>
+
+    <?php else: // wrap error template ?>
+
         <div class="container text-center margin-top-75">
-        <?= $this->content ?>
+            <?= $this->content ?>
         </div>
+
     <?php endif; ?>
 
     <?= $this->render("layout/javascript") ?>

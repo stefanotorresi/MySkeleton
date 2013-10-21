@@ -1,4 +1,3 @@
-nbproject
 ._*
 .~lock.*
 .buildpath
@@ -8,4 +7,13 @@ nbproject
 .settings
 .sass-cache
 *.swp
-/vendor
+composer.lock
+config/development.config.php
+config/autoload/local.php
+config/autoload/*.local.php
+config/autoload/*.local.dist.php
+data/cache/*
+nbproject
+vendor
+!assets/vendor/README.md
+!data/cache/.gitkeep

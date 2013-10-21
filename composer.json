@@ -9,14 +9,18 @@
     "homepage": "http://github.com/stefanotorresi/MySkeleton",
     "require": {
         "php": ">5.4.1",
-        "zf-commons/zfc-base": "*",
         "stefanotorresi/my-base": "1.*@dev",
-        "stefanotorresi/my-error-handler": "dev-master"
+        "stefanotorresi/my-error-handler": "dev-master",
+        "rwoverdijk/assetmanager": "1.*"
+    },
+    "require-dev": {
+        "zendframework/zftool": "dev-master",
+        "zendframework/zend-developer-tools": "dev-master"
     },
     "extra": {
         "branch-alias": {
             "dev-master": "1.x-dev",
             "dev-0.x": "0.x-dev"
         }
-    },
+    }
 }

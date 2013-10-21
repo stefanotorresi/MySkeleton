@@ -1,6 +1,10 @@
-/*
- * Obsolete browser warning
- */
+@charset "utf-8";
+$basesize: 14;
+
+// boilerplate
+@import '../vendor/bourbon/app/assets/stylesheets/_bourbon.scss';
+@import 'mixins';
+@import 'helpers';
 
 .browsehappy {
   .warning,

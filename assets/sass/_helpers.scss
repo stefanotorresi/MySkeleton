@@ -7,23 +7,6 @@
 */
 
 /*
- * Image replacement
- */
-
-.ir {
-    background-color: transparent;
-    border: 0;
-    overflow: hidden;
-    *text-indent: -9999px; /* IE 6/7 fallback */
-    &:before {
-        content: "";
-        display: block;
-        width: 0;
-        height: 150%;
-    }
-}
-
-/*
  * Hide from both screenreaders and browsers: h5bp.com/u
  */
 
@@ -76,10 +59,6 @@
 
 .bordered {
     border: 1px solid;
-}
-
-.padded {
-    padding: 1em;
 }
 
 .float-left {
@@ -135,7 +114,7 @@ img.float-right {
   }
 }
 
-.center {
+.centered-block {
     margin-left: auto !important;
     margin-right: auto !important;
     display: block;
@@ -144,38 +123,4 @@ img.float-right {
 
 .bold {
     font-weight: bold;
-}
-
-.drop-shadow-lifted {
-  position: relative;
-  background: white;
-  &:before,
-  &:after {
-    position: absolute;
-    content: '';
-    z-index: -1;
-    bottom: 15px;
-    left: 10px;
-    width: 50%;
-    height: 20%;
-    max-width: 300px;
-    max-height: 100px;
-    -webkit-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 15px 10px rgba(0, 0, 0, 0.3);
-    -webkit-transform: rotate(-3deg);
-    -moz-transform: rotate(-3deg);
-    -ms-transform: rotate(-3deg);
-    -o-transform: rotate(-3deg);
-    transform: rotate(-3deg);
-  }
-  &:after {
-    right: 10px;
-    left: auto;
-    -webkit-transform: rotate(3deg);
-    -moz-transform: rotate(3deg);
-    -ms-transform: rotate(3deg);
-    -o-transform: rotate(3deg);
-    transform: rotate(3deg);
-  }
 }

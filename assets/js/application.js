@@ -95,7 +95,7 @@ Application.prototype = {
         var app = this;
 
         yepnope([{
-            test: app.config.googleAnalytics,
+            test: app.config.googleAnalytics.length,
             yep: (document.location.protocol === 'https:' ? '//ssl' : 'http://www') + '.google-analytics.com/ga.js',
             complete: function() {
                 $.each(app.config.googleAnalytics, function(index, command){

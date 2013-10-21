@@ -1,0 +1,11 @@
+<?php /* @var $this Zend\View\Renderer\PhpRenderer */
+
+use Zend\Json\Json;
+
+$applicationConfig = [
+    'homeUrl' => $this->url('home', [], ['force_canonical' => true]),
+    'googleAnalytics' => $this->layout()->google_analytics,
+];
+
+echo $this->inlineScript()
+        ->prependScript('application = new Application('. Json::encode($applicationConfig) .');').PHP_EOL;

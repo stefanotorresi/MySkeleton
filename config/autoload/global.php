@@ -12,5 +12,76 @@
  */
 
 return [
+    'MyBase' => array(
+        'AsseticSassFilter' => array(
+            'sass_path' => '/usr/local/bin/sass',
+        ),
+    ),
 
+    'asset_manager' => [
+        'resolver_configs' => [
+            'collections' => [
+
+                'css/styles.css' => [
+                    'css/bootstrap.min.css',
+                    'css/main.css',
+                ],
+                'js/scripts.js' => [
+                    'js/modernizr.js',
+                    'js/yepnope-bundle.js',
+                    'js/jquery-bundle.js',
+                    'js/bootstrap.min.js',
+                    'js/application-bundle.js',
+                ],
+
+                'js/application-bundle.js' => [
+                    'js/application.js',
+                ],
+                'js/jquery-bundle.js' => [
+                    'js/jquery.js',
+                ],
+                'js/yepnope-bundle.js' => [
+                    'js/yepnope.js',
+                    'js/yepnope.css.js',
+                    'js/yepnope.css-prefix.js',
+                    'js/yepnope.ie-prefix.js',
+                    'js/yepnope.preload.js',
+                ],
+
+            ],
+            'map' => [
+                'css/main.css'              => 'assets/sass/main.scss',
+                'js/application.js'         => 'assets/js/application.js',
+                'js/jquery.js'              => 'assets/vendor/jquery/jquery.js',
+                'js/modernizr.js'           => 'assets/vendor/modernizr/modernizr.js',
+                'js/yepnope.js'             => 'assets/vendor/yepnope/yepnope.js',
+                'js/yepnope.css.js'         => 'assets/vendor/yepnope/plugins/yepnope.css.js',
+                'js/yepnope.css-prefix.js'  => 'assets/vendor/yepnope/prefixes/yepnope.css-prefix.js',
+                'js/yepnope.ie-prefix.js'   => 'assets/vendor/yepnope/prefixes/yepnope.ie-prefix.js',
+                'js/yepnope.preload.js'     => 'assets/vendor/yepnope/prefixes/yepnope.preload.js',
+            ],
+            'paths' => [
+                'assets/vendor/bootstrap/dist'
+            ],
+        ],
+        'filters' => [
+            'css/main.css' => [
+                [ 'service' => 'MyAsseticSassFilter' ],
+            ],
+            'js/component/jquery.js' => [
+                [ 'filter' => 'UglifyJS2' ]
+            ],
+            'js/component/application.js' => [
+                [ 'filter' => 'UglifyJS2' ]
+            ],
+        ],
+        'caching' => [
+            'default' => [
+                'cache' => 'FilePath',
+                'options' => [
+                    'dir' => './data/cache',
+                ],
+            ],
+        ],
+    ],
 ];

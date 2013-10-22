@@ -22,18 +22,28 @@ return [
         'resolver_configs' => [
             'collections' => [
 
+                // main output files
                 'css/styles.css' => [
-                    'css/bootstrap.min.css',
-                    'css/main.css',
+                    'css/static-css-bundle.css',
+                    'css/compiled-css-bundle.css',
                 ],
                 'js/scripts.js' => [
                     'js/modernizr.js',
                     'js/yepnope-bundle.js',
                     'js/jquery-bundle.js',
-                    'js/bootstrap.min.js',
+                    'js/bootstrap.js',
                     'js/application-bundle.js',
                 ],
 
+                // css collections
+                'css/compiled-css-bundle.css' => [
+                    'css/main.css',
+                ],
+                'css/static-css-bundle.css' => [
+                    'css/bootstrap.css',
+                ],
+
+                // js collections
                 'js/application-bundle.js' => [
                     'js/application.js',
                 ],
@@ -67,20 +77,6 @@ return [
         'filters' => [
             'css/main.css' => [
                 [ 'service' => 'MyAsseticSassFilter' ],
-            ],
-            'js/component/jquery.js' => [
-                [ 'filter' => 'UglifyJS2' ]
-            ],
-            'js/component/application.js' => [
-                [ 'filter' => 'UglifyJS2' ]
-            ],
-        ],
-        'caching' => [
-            'default' => [
-                'cache' => 'FilePath',
-                'options' => [
-                    'dir' => './data/cache',
-                ],
             ],
         ],
     ],

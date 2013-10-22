@@ -19,4 +19,23 @@ return [
 //            ['_trackPageview'],
         ],
     ],
+
+    'asset_manager' => [
+        'filters' => [
+            'js/scripts.js' => [
+                [ 'filter' => 'UglifyJS2' ]
+            ],
+            'css/static-css-bundle.css' => [
+                [ 'filter' => 'UglifyCSS' ]
+            ],
+        ],
+        'caching' => [
+            'default' => [
+                'cache' => 'FilePath',
+                'options' => [
+                    'dir' => './data/cache',
+                ],
+            ],
+        ],
+    ],
 ];

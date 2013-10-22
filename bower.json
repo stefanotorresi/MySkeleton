@@ -8,6 +8,7 @@
         "modernizr": "2.*",
         "yepnope": "1.*",
         "bootstrap": "3.*",
-        "bourbon": "3.*"
+        "bourbon": "3.*",
+        "jquery": "*"
     }
 }

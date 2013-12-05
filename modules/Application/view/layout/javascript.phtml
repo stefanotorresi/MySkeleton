@@ -8,4 +8,5 @@ $applicationConfig = [
 ];
 
 echo $this->inlineScript()
-        ->prependScript('application = new Application('. Json::encode($applicationConfig) .');').PHP_EOL;
+        ->prependScript('app = new Application('. Json::encode($applicationConfig) .');')
+        ->prependFile($this->basePath('js/frontend-scripts.js?').$this->layout()->cache_bust_index).PHP_EOL;

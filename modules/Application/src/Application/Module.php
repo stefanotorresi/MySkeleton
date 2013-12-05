@@ -7,32 +7,15 @@
 
 namespace Application;
 
-use Application\View\RenderListener;
-use MyBase\BaseModule;
+use MyBase\AbstractModule;
 use Zend\Console\Adapter\AdapterInterface as ConsoleAdapterInterface;
 use Zend\ModuleManager\Feature;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
-class Module extends BaseModule
+class Module extends AbstractModule
     implements Feature\ConsoleUsageProviderInterface
 {
-    /**
-     * {@inheritdoc}
-     */
-    public function getDir()
-    {
-        return __DIR__ . '/../..';
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getNamespace()
-    {
-        return __NAMESPACE__;
-    }
-
     public function onBootstrap(MvcEvent $event)
     {
         $eventManager = $event->getApplication()->getEventManager();

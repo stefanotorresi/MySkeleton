@@ -12,11 +12,6 @@
  */
 
 return [
-    'MyBase' => array(
-        'AsseticSassFilter' => array(
-            'sass_path' => '/usr/local/bin/sass',
-        ),
-    ),
 
     'asset_manager' => [
         'resolver_configs' => [
@@ -27,26 +22,24 @@ return [
                     'css/static-css-bundle.css',
                     'css/compiled-css-bundle.css',
                 ],
-                'js/scripts.js' => [
-                    'js/modernizr.js',
+                'js/header-scripts.js' => [
                     'js/yepnope-bundle.js',
+                    'js/modernizr.js',
+                ],
+                'js/frontend-scripts.js' => [
                     'js/jquery-bundle.js',
                     'js/bootstrap.js',
-                    'js/application-bundle.js',
+                    'js/application.js',
                 ],
 
                 // css collections
                 'css/compiled-css-bundle.css' => [
-                    'css/main.css',
+                    'sass/main.scss',
                 ],
                 'css/static-css-bundle.css' => [
-                    'css/bootstrap.css',
                 ],
 
                 // js collections
-                'js/application-bundle.js' => [
-                    'js/application.js',
-                ],
                 'js/jquery-bundle.js' => [
                     'js/jquery.js',
                 ],
@@ -57,10 +50,24 @@ return [
                     'js/yepnope.ie-prefix.js',
                     'js/yepnope.preload.js',
                 ],
+                'js/bootstrap.js' => [
+                    'js/bootstrap-transition.js',
+                    'js/bootstrap-alert.js',
+                    'js/bootstrap-button.js',
+                    'js/bootstrap-carousel.js',
+                    'js/bootstrap-collapse.js',
+                    'js/bootstrap-dropdown.js',
+                    'js/bootstrap-modal.js',
+                    'js/bootstrap-tooltip.js',
+                    'js/bootstrap-popover.js',
+                    'js/bootstrap-scrollspy.js',
+                    'js/bootstrap-tab.js',
+                    'js/bootstrap-affix.js',
+                ],
 
             ],
             'map' => [
-                'css/main.css'              => 'assets/sass/main.scss',
+                'sass/main.scss'            => 'assets/sass/main.scss',
                 'js/application.js'         => 'assets/js/application.js',
                 'js/jquery.js'              => 'assets/vendor/jquery/jquery.js',
                 'js/modernizr.js'           => 'assets/vendor/modernizr/modernizr.js',
@@ -71,11 +78,11 @@ return [
                 'js/yepnope.preload.js'     => 'assets/vendor/yepnope/prefixes/yepnope.preload.js',
             ],
             'paths' => [
-                'assets/vendor/bootstrap/dist'
+                'assets/vendor/yatsatrap'
             ],
         ],
         'filters' => [
-            'css/main.css' => [
+            'sass/main.scss' => [
                 [ 'service' => 'MyAsseticSassFilter' ],
             ],
         ],

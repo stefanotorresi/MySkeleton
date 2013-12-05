@@ -22,7 +22,7 @@ $this->headLink()->prependStylesheet($this->basePath('/css/styles.css?').$this->
 
 // these is the only scripts needed in the head
 // any other script is included in at the bottom of the DOM, inside 'javascript.phtml'
-$this->headScript()->prependFile($this->basePath('js/scripts.js?').$this->layout()->cache_bust_index);
+$this->headScript()->prependFile($this->basePath('js/header-scripts.js?').$this->layout()->cache_bust_index);
 
 $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
 

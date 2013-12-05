@@ -120,3 +120,12 @@
     transform: rotate(3deg);
   }
 }
+
+@function strip-unit($number) {
+  @return $number / ($number * 0 + 1);
+}
+
+@function em($target, $context: $baseFontSize) {
+  $context: strip-unit($context);
+  @return ($target / $context) * 1em;
+}

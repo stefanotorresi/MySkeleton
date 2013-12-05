@@ -22,8 +22,11 @@ return [
 
     'asset_manager' => [
         'filters' => [
-            'js/scripts.js' => [
-                [ 'filter' => 'UglifyJS2' ]
+            'js/header-scripts.js' => [
+                [ 'filter' => 'UglifyJs2' ]
+            ],
+            'js/frontend-scripts.js' => [
+                [ 'filter' => 'UglifyJs2' ]
             ],
             'css/static-css-bundle.css' => [
                 [ 'filter' => 'UglifyCSS' ]
@@ -38,4 +41,10 @@ return [
             ],
         ],
     ],
+
+    'MyBase' => array(
+        'AsseticSassFilter' => array(
+            'sass_path' => '/usr/local/bin/sass',
+        ),
+    ),
 ];

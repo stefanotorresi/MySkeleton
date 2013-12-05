@@ -3,6 +3,7 @@ $basesize: 14;
 
 // boilerplate
 @import '../vendor/bourbon/app/assets/stylesheets/_bourbon.scss';
+@import '../vendor/yatsatrap/sass/bootstrap';
 @import 'mixins';
 @import 'helpers';
 

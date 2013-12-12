@@ -9,8 +9,9 @@
     "homepage": "http://github.com/stefanotorresi/MySkeleton",
     "require": {
         "php": ">5.4.1",
-        "stefanotorresi/my-base": "1.*@dev",
-        "stefanotorresi/my-error-handler": "dev-master",
+        "zendframework/zendframework": "~2.2",
+        "stefanotorresi/my-base": "1.*",
+        "stefanotorresi/my-error-handler": "0.*",
         "rwoverdijk/assetmanager": "1.*"
     },
     "require-dev": {

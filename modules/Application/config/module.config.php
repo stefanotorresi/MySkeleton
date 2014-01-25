@@ -82,7 +82,7 @@ return array(
             array(
                 'type'     => 'phpArray',
                 'base_dir' => __DIR__ . '/../language',
-                'pattern'  => '%s/'.__NAMESPACE__.'.php',
+                'pattern'  => '%s/application.php',
             ),
         ),
     ),

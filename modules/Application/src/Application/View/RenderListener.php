@@ -11,6 +11,7 @@ use Zend\EventManager\AbstractListenerAggregate;
 use Zend\EventManager\EventManagerInterface;
 use Zend\Mvc\MvcEvent;
 use Zend\ServiceManager\ServiceManager;
+use Zend\Stdlib\ArrayUtils;
 use Zend\View\Model;
 
 class RenderListener extends AbstractListenerAggregate
@@ -28,7 +29,7 @@ class RenderListener extends AbstractListenerAggregate
     {
         $layoutModel = $e->getViewModel();
 
-        if (! $layoutModel instanceof Model\ViewModel) {
+        if (! $layoutModel instanceof Model\ViewModel || $layoutModel instanceof Model\JsonModel) {
             return;
         }
 
@@ -37,12 +38,16 @@ class RenderListener extends AbstractListenerAggregate
 
         $config = $serviceManager->get('config')['Application'];
 
-        $layoutModel->setVariables($config['layout']);
-        $layoutModel->setVariable('api_keys', $config['api_keys']);
-        $layoutModel->setVariable('google_analytics', $config['google_analytics']);
-
-        $layoutModel->lang = $serviceManager->has('translator') ?
-            $serviceManager->get('translator')->getLocale() : $config['lang'];
+        $layoutModel->setVariables(ArrayUtils::merge(
+            $config['layout'],
+            [
+                'api_keys' => $config['api_keys'],
+                'google_analytics' => $config['google_analytics'],
+                'lang' => $serviceManager->has('translator') ?
+                            $serviceManager->get('translator')->getLocale() : $config['lang'],
+                'error' => $e->isError(),
+            ]
+        ));
     }
 
 }

@@ -36,7 +36,7 @@ return [
             'default' => [
                 'cache' => 'FilePath',
                 'options' => [
-                    'dir' => './data/cache',
+                    'dir' => './data/cache/assets',
                 ],
             ],
         ],

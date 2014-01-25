@@ -18,13 +18,13 @@ foreach ($this->layout()->open_graph as $key => $value) {
 }
 
 // common css
-$this->headLink()->prependStylesheet($this->basePath('/css/styles.css?').$this->layout()->cache_bust_index, 'all');
+$this->headLink()->prependStylesheet($this->basePath('css/styles.css?').$this->layout()->cache_bust_index, 'all');
 
 // these is the only scripts needed in the head
 // any other script is included in at the bottom of the DOM, inside 'javascript.phtml'
 $this->headScript()->prependFile($this->basePath('js/header-scripts.js?').$this->layout()->cache_bust_index);
 
-$bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
+$bodyClass = $this->error ? 'error' : $this->layout()->bodyClass;
 
 ?>
 <?= $this->doctype().PHP_EOL ?>
@@ -51,7 +51,7 @@ $bodyClass = (isset($this->error) ? 'error' : $this->layout()->bodyClass);
     </div>
     <![endif]-->
 
-    <?php if (!isset($this->error)) : ?>
+    <?php if (! $this->error) : ?>
 
         <?= $this->content ?>
 

@@ -1,11 +1,11 @@
 @charset "utf-8";
-$basesize: 14;
+
+$icon-font-path: '../vendor/yatsatrap/fonts/';
 
 // boilerplate
-@import '../vendor/bourbon/app/assets/stylesheets/_bourbon.scss';
+@import '../vendor/bourbon/app/assets/stylesheets/bourbon';
 @import '../vendor/yatsatrap/sass/bootstrap';
-@import 'mixins';
-@import 'helpers';
+@import '../vendor/my-sass-boilerplate/my-sass-boilerplate';
 
 .browsehappy {
   .warning,

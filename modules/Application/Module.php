@@ -9,6 +9,4 @@
  * The original Module.php is in 'src/{ModuleNamespace}' in order to respect PSR-0
  */
 
-namespace Application;
-
-require_once __DIR__ . '/src/' . __NAMESPACE__ . '/Module.php';
+require_once __DIR__ . '/src/Application/Module.php';

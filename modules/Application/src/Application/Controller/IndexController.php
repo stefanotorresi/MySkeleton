@@ -13,7 +13,14 @@ class IndexController extends AbstractActionController
 {
     public function indexAction()
     {
-        $this->layout()->content = '<h1 class="container text-center">It works!</h1>';
+        $this->layout()->content = '
+            <div class="container">
+                <h1 class="text-center alert alert-success">
+                    <span class="glyphicon glyphicon-ok-sign"></span>
+                    It works!
+                </h1>
+            </div>
+        ';
 
         return false;
     }

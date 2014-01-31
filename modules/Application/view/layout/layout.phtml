@@ -3,7 +3,7 @@
 
 use Zend\Json\Json;
 
-if ($this->terminate()) {
+if ($this->layout()->terminate()) {
     echo $this->content;
 
     return;
@@ -15,10 +15,10 @@ if (! $this->title) {
 
 // some meta defaults
 $this->headMeta()
-    ->setName('keywords', '')
-    ->setName('description', '')
-    ->setName('viewport', 'width=device-width, initial-scale=1.0')
-    ->setCharset('utf-8');
+     ->setName('keywords', '')
+     ->setName('description', '')
+     ->setName('viewport', 'width=device-width, initial-scale=1.0')
+     ->setCharset('utf-8');
 
 // common css
 $this->headLink()->prependStylesheet($this->basePath('css/styles.css?').$this->cache_bust_index, 'all');

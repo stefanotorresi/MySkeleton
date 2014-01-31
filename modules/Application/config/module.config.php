@@ -13,8 +13,6 @@ return array(
     __NAMESPACE__ => [
         'layout' => [
             'cache_bust_index' => uniqid(),
-            'metas' => [],
-            'open_graph' => [],
         ],
         'api_keys' => [],
         'google_analytics' => [],

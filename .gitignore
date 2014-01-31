@@ -17,4 +17,8 @@ data/cache/*
 assets/vendor/*
 !assets/vendor/README.md
 !data/cache/.gitkeep
-/vendor
+vendor
+public/img
+public/css
+public/js
+!public/*/.gitkeep

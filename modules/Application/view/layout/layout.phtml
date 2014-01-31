@@ -1,46 +1,50 @@
 <?php
 /* @var $this Zend\View\Renderer\PhpRenderer  */
 
-if ($this->layout()->terminate()) {
+use Zend\Json\Json;
+
+if ($this->terminate()) {
     echo $this->content;
 
     return;
 }
 
-// meta tags
-foreach ($this->layout()->metas as $key => $value) {
-    $this->headMeta()->appendName($key, $value);
+if (! $this->title) {
+    $this->title = 'MySkeleton Application';
 }
 
-// Facebook opengraph metas
-foreach ($this->layout()->open_graph as $key => $value) {
-    $this->headMeta()->setProperty($key, $value);
-}
+// some meta defaults
+$this->headMeta()
+    ->setName('keywords', '')
+    ->setName('description', '')
+    ->setName('viewport', 'width=device-width, initial-scale=1.0')
+    ->setCharset('utf-8');
 
 // common css
-$this->headLink()->prependStylesheet($this->basePath('css/styles.css?').$this->layout()->cache_bust_index, 'all');
+$this->headLink()->prependStylesheet($this->basePath('css/styles.css?').$this->cache_bust_index, 'all');
 
-// these is the only scripts needed in the head
-// any other script is included in at the bottom of the DOM, inside 'javascript.phtml'
-$this->headScript()->prependFile($this->basePath('js/header-scripts.js?').$this->layout()->cache_bust_index);
+// base javascript needed in the header, i.e. modernizr and yepnope
+$this->headScript()->prependFile($this->basePath('js/header-scripts.js?').$this->cache_bust_index);
 
-$bodyClass = $this->error ? 'error' : $this->layout()->bodyClass;
+if (isset($this->error)) {
+    $this->bodyClass .= ' error';
+}
 
 ?>
 <?= $this->doctype().PHP_EOL ?>
-<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="<?= $this->layout()->lang ?>"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="<?= $this->layout()->lang ?>"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" lang="<?= $this->layout()->lang ?>"> <![endif]-->
-<!--[if IE 9]>         <html class="no-js lt-ie10" lang="<?= $this->layout()->lang ?>"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="<?= $this->layout()->lang ?>"> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie10 lt-ie9 lt-ie8 lt-ie7" lang="<?= $this->lang ?>"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie10 lt-ie9 lt-ie8" lang="<?= $this->lang ?>"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie10 lt-ie9" lang="<?= $this->lang ?>"> <![endif]-->
+<!--[if IE 9]>         <html class="no-js lt-ie10" lang="<?= $this->lang ?>"> <![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js" lang="<?= $this->lang ?>"> <!--<![endif]-->
 <head>
-    <?= $this->headTitle($this->layout()->title)->setSeparator(' | ').PHP_EOL ?>
-    <?= $this->headMeta()->setCharset('utf-8').PHP_EOL; ?>
+    <?= $this->headTitle($this->title)->setSeparator(' | ').PHP_EOL ?>
+    <?= $this->headMeta().PHP_EOL; ?>
     <?= $this->headLink().PHP_EOL ?>
     <?= $this->headScript().PHP_EOL ?>
 </head>
 
-<body class="<?= $this->escapeHtmlAttr($bodyClass) ?>">
+<body class="default-layout <?= $this->escapeHtmlAttr($this->bodyClass) ?>">
 
     <a id="top"></a>
 
@@ -61,9 +65,18 @@ $bodyClass = $this->error ? 'error' : $this->layout()->bodyClass;
             <?= $this->content ?>
         </div>
 
-    <?php endif; ?>
+    <?php endif;
 
-    <?= $this->render("layout/javascript") ?>
+    $applicationConfig = [
+        'homeUrl' => $this->url('home', [], ['force_canonical' => true]),
+        'googleAnalytics' => $this->google_analytics,
+    ];
+
+    echo $this->inlineScript()
+            ->prependScript('application = new Application('. Json::encode($applicationConfig) .');')
+            ->prependFile($this->basePath('js/frontend-scripts.js?').$this->cache_bust_index).PHP_EOL;
+
+    ?>
 
 </body>
 </html>

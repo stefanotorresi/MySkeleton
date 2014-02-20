@@ -22,5 +22,13 @@
             "dev-master": "1.x-dev",
             "dev-0.x": "0.x-dev"
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "cd modules/Application && bower install"
+        ],
+        "post-update-cmd": [
+            "cd modules/Application && bower install"
+        ]
     }
 }

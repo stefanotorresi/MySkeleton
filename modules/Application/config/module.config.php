@@ -93,8 +93,6 @@ return array(
     ),
 
     'view_manager' => array(
-        'display_not_found_reason' => true,
-        'display_exceptions'       => true,
         'exception_template'       => 'error/default',
         'not_found_template'       => 'error/404',
         'doctype'                  => 'HTML5',

@@ -20,6 +20,7 @@ return [
     'MyBase' => array(
         'AsseticSassFilter' => array(
             'style' => 'expanded',
+            'sass_path' => '/usr/local/bin/sass',
         ),
     ),
 ];

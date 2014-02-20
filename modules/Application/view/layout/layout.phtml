@@ -21,12 +21,12 @@ $this->headMeta()
      ->setCharset('utf-8');
 
 // common css
-$this->headLink()->prependStylesheet($this->basePath('css/styles.css?').$this->cache_bust_index, 'all');
+$this->headLink()->prependStylesheet($this->basePath('application/css/main.css?').$this->cache_bust_index, 'all');
 
 // base javascript needed in the header, i.e. modernizr and yepnope
-$this->headScript()->prependFile($this->basePath('js/header-scripts.js?').$this->cache_bust_index);
+$this->headScript()->prependFile($this->basePath('application/js/header.js?').$this->cache_bust_index);
 
-if (isset($this->error)) {
+if ($this->error) {
     $this->bodyClass .= ' error';
 }
 
@@ -61,7 +61,7 @@ if (isset($this->error)) {
 
     <?php else: // wrap error template ?>
 
-        <div class="container text-center margin-top-75">
+        <div class="container padding-top-75 padding-bottom-75">
             <?= $this->content ?>
         </div>
 
@@ -74,7 +74,7 @@ if (isset($this->error)) {
 
     echo $this->inlineScript()
             ->prependScript('application = new Application('. Json::encode($applicationConfig) .');')
-            ->prependFile($this->basePath('js/frontend-scripts.js?').$this->cache_bust_index).PHP_EOL;
+            ->prependFile($this->basePath('application/js/scripts.js?').$this->cache_bust_index).PHP_EOL;
 
     ?>
 

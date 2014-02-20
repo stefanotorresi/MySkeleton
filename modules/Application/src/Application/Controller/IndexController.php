@@ -15,10 +15,15 @@ class IndexController extends AbstractActionController
     {
         $this->layout()->content = '
             <div class="container">
-                <h1 class="text-center alert alert-success">
-                    <span class="glyphicon glyphicon-ok-sign"></span>
-                    It works!
-                </h1>
+                <div style="display: none" class="visible-lg visible-md visible-sm visible-xs">
+                    <h1 class="text-center alert alert-success">
+                        <span class="glyphicon glyphicon-ok-sign"></span>
+                        It works!
+                    </h1>
+                </div>
+                <div class="hidden">
+                    <h1>CSS assets loading falied :(</h1>
+                </div>
             </div>
         ';
 

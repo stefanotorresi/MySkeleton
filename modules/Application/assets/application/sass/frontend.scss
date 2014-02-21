@@ -1,10 +1,10 @@
 @charset "utf-8";
 
-$icon-font-path: '../vendor/yatsatrap/fonts/';
+$icon-font-path: '../vendor/twbs-bootstrap-sass/vendor/assets/fonts/bootstrap/';
 
 // boilerplate
 @import '../vendor/bourbon/app/assets/stylesheets/bourbon';
-@import '../vendor/yatsatrap/sass/bootstrap';
+@import '../vendor/twbs-bootstrap-sass/vendor/assets/stylesheets/bootstrap';
 @import '../vendor/my-sass-boilerplate/my-sass-boilerplate';
 
 // partials

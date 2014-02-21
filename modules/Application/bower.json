@@ -7,7 +7,7 @@
   "dependencies": {
     "modernizr": "2.*",
     "yepnope": "1.*",
-    "yatsatrap": "3.*",
+    "twbs-bootstrap-sass": "~3.1",
     "bourbon": "~3.1.8",
     "jquery": "~2.1.0",
     "my-sass-boilerplate": "~1.0.0"

@@ -22,7 +22,7 @@ return [
 
                 'application/js/scripts.js' => [
                     'application/js/jquery-bundle.js',
-                    'application/js/bootstrap.js',
+                    'application/js/bootstrap-bundle.js',
                     'application/js/application.js',
                 ],
 
@@ -37,19 +37,19 @@ return [
                     'application/vendor/yepnope/prefixes/yepnope.ie-prefix.js',
                     'application/vendor/yepnope/prefixes/yepnope.preload.js',
                 ],
-                'application/js/bootstrap.js' => [
-                    'application/vendor/yatsatrap/js/bootstrap-transition.js',
-                    'application/vendor/yatsatrap/js/bootstrap-alert.js',
-                    'application/vendor/yatsatrap/js/bootstrap-button.js',
-                    'application/vendor/yatsatrap/js/bootstrap-carousel.js',
-                    'application/vendor/yatsatrap/js/bootstrap-collapse.js',
-                    'application/vendor/yatsatrap/js/bootstrap-dropdown.js',
-                    'application/vendor/yatsatrap/js/bootstrap-modal.js',
-                    'application/vendor/yatsatrap/js/bootstrap-tooltip.js',
-                    'application/vendor/yatsatrap/js/bootstrap-popover.js',
-                    'application/vendor/yatsatrap/js/bootstrap-scrollspy.js',
-                    'application/vendor/yatsatrap/js/bootstrap-tab.js',
-                    'application/vendor/yatsatrap/js/bootstrap-affix.js',
+                'application/js/bootstrap-bundle.js' => [
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/transition.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/alert.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/button.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/carousel.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/collapse.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/dropdown.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/modal.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/tooltip.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/popover.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/scrollspy.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/tab.js',
+                    'application/vendor/twbs-bootstrap-sass/vendor/assets/javascripts/bootstrap/affix.js',
                 ],
             ],
 

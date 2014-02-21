@@ -21,8 +21,8 @@ class RenderListener extends AbstractListenerAggregate
      */
     public function attach(EventManagerInterface $events)
     {
-        $this->listeners[] = $events->attach(MvcEvent::EVENT_RENDER, array($this, 'prepareLayout'), -1);
-        $this->listeners[] = $events->attach(MvcEvent::EVENT_RENDER_ERROR, array($this, 'prepareLayout'), -101);
+        $this->listeners[] = $events->attach(MvcEvent::EVENT_RENDER, [$this, 'prepareLayout'], -1);
+        $this->listeners[] = $events->attach(MvcEvent::EVENT_RENDER_ERROR, [$this, 'prepareLayout'], -101);
     }
 
     public function prepareLayout(MvcEvent $e)
@@ -43,8 +43,7 @@ class RenderListener extends AbstractListenerAggregate
             [
                 'api_keys' => $config['api_keys'],
                 'google_analytics' => $config['google_analytics'],
-                'lang' => $serviceManager->has('translator') ?
-                            $serviceManager->get('translator')->getLocale() : $config['lang'],
+                'lang' => $serviceManager->get('translator')->getLocale(),
                 'error' => $e->isError(),
             ]
         ));

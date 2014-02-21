@@ -14,7 +14,6 @@ use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
 
 class Module extends AbstractModule
-    implements Feature\ConsoleUsageProviderInterface
 {
     public function onBootstrap(MvcEvent $event)
     {
@@ -25,15 +24,5 @@ class Module extends AbstractModule
 
         $eventManager->attach($renderListener);
         $eventManager->attach($moduleRouteListener);
-    }
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getConsoleUsage(ConsoleAdapterInterface $console)
-    {
-        return [
-            'development (disable|enable)' => 'Disable or enable development mode',
-        ];
     }
 }

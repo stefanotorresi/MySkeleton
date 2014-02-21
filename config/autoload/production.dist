@@ -42,9 +42,9 @@ return [
         ],
     ],
 
-    'MyBase' => array(
-        'AsseticSassFilter' => array(
+    'MyBase' => [
+        'AsseticSassFilter' => [
             'sass_path' => '/usr/local/bin/sass',
-        ),
-    ),
+        ],
+    ],
 ];

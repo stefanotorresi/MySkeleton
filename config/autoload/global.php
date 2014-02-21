@@ -14,7 +14,20 @@
 return [
     'view_manager' => [
         'display_not_found_reason' => true,
-        'display_exceptions' => true,
+        'display_exceptions'       => true,
+        'exception_template'       => 'error/default',
+        'not_found_template'       => 'error/404',
+        'doctype'                  => 'HTML5',
+    ],
+
+    'service_manager' => [
+        'abstract_factories' => [
+            'Zend\Cache\Service\StorageCacheAbstractServiceFactory',
+            'Zend\Log\LoggerAbstractServiceFactory',
+        ],
+        'aliases' => [
+            'translator' => 'MvcTranslator',
+        ],
     ],
 
     'MyBase' => [

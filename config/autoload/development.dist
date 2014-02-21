@@ -17,10 +17,10 @@ return [
         'display_exceptions' => true,
     ],
 
-    'MyBase' => array(
-        'AsseticSassFilter' => array(
+    'MyBase' => [
+        'AsseticSassFilter' => [
             'style' => 'expanded',
             'sass_path' => '/usr/local/bin/sass',
-        ),
-    ),
+        ],
+    ],
 ];

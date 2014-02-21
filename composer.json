@@ -17,7 +17,8 @@
         "zendframework/zendframework": "~2.2",
         "stefanotorresi/my-base": "1.*",
         "rwoverdijk/assetmanager": "1.*",
-        "kriswallsmith/assetic": "dev-patched-master as 1.1.x-dev"
+        "kriswallsmith/assetic": "dev-patched-master as 1.1.x-dev",
+        "zfcampus/zf-development-mode": "~2.0"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",

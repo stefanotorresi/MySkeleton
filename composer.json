@@ -7,11 +7,17 @@
         "zf2"
     ],
     "homepage": "http://github.com/stefanotorresi/MySkeleton",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "preferred-install": "dist"
+    },
     "require": {
         "php": ">5.4.1",
         "zendframework/zendframework": "~2.2",
         "stefanotorresi/my-base": "1.*",
-        "rwoverdijk/assetmanager": "1.*"
+        "rwoverdijk/assetmanager": "1.*",
+        "kriswallsmith/assetic": "dev-patched-master as 1.1.x-dev"
     },
     "require-dev": {
         "zendframework/zftool": "dev-master",
@@ -30,5 +36,11 @@
         "post-update-cmd": [
             "cd modules/Application && bower install"
         ]
-    }
+    },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/stefanotorresi/assetic"
+        }
+    ]
 }
